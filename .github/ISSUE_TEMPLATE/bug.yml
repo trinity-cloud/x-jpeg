@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible X-JPEG problem
+title: "[bug] "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Include the command/API call without private images or credentials.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Environment
+      description: X-JPEG, Python, OS, backend, and MozJPEG/Pillow versions.
+    validations:
+      required: true
+

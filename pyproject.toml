@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=77", "wheel>=0.45"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xjpeg"
+version = "0.1.0"
+description = "Neural adaptive quantization tables for standards-compliant JPEG"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_LICENSES/**/*"]
+authors = [{ name = "Migel Tissera" }]
+keywords = ["jpeg", "image-compression", "mozjpeg", "deep-learning", "computer-vision"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "pillow>=9.1",
+    "pytorch-msssim>=1.0",
+    "safetensors>=0.4",
+]
+
+[project.optional-dependencies]
+train = ["torchvision", "tensorboard", "matplotlib", "scipy", "tqdm"]
+test = ["pytest>=8", "scipy"]
+
+[project.scripts]
+xjpeg = "xjpeg.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/trinity-cloud/x-jpeg"
+Documentation = "https://github.com/trinity-cloud/x-jpeg#readme"
+Repository = "https://github.com/trinity-cloud/x-jpeg.git"
+Issues = "https://github.com/trinity-cloud/x-jpeg/issues"
+Model = "https://huggingface.co/migtissera/x-jpeg"
+
+[tool.setuptools.packages.find]
+include = ["xjpeg*"]
+
+[tool.setuptools.package-data]
+xjpeg = ["weights/*.json", "weights/*.safetensors", "bin/cjpeg", "bin/cjpeg.exe"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

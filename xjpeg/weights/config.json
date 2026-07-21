@@ -1,0 +1,13 @@
+{
+  "format": "xjpeg-encoder-v1",
+  "version": "0.1.0",
+  "architecture": "compact",
+  "dct_stats": true,
+  "gdn_reparam": true,
+  "num_tables": 3,
+  "input_thumbnail": [256, 256],
+  "default_share_chroma": true,
+  "weights_sha256": "823a305b9cdf6d16e2296644d88a343dfc68621fa8e3d4b3c0125772c50b92e8",
+  "source_checkpoint_sha256": "5878df379ff23dbfa1c1e753d0a70d2b131e4625cc20be2b61fc882789304219",
+  "training_dataset": "COCO train2017"
+}

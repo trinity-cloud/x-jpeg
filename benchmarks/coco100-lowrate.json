@@ -1,0 +1,89 @@
+{
+  "schema": "xjpeg-public-benchmark-v1",
+  "date": "2026-07-21",
+  "dataset": "COCO val2017",
+  "n": 100,
+  "seed": 20260721,
+  "domain": "native resolution",
+  "rate_definition": "8 * complete_file_bytes / (source_width * source_height)",
+  "subsampling": "4:2:0",
+  "xjpeg_source_checkpoint_sha256": "5878df379ff23dbfa1c1e753d0a70d2b131e4625cc20be2b61fc882789304219",
+  "xjpeg_safetensors_sha256": "823a305b9cdf6d16e2296644d88a343dfc68621fa8e3d4b3c0125772c50b92e8",
+  "mozjpeg_commit": "08265790774cd0714832c9e675522acbe5581437",
+  "results": {
+    "0.5": {
+      "xjpeg-2dqt-mozjpeg": {
+        "bpp": 0.4997496956837449,
+        "rgb_ms_ssim": 0.9571815347671508,
+        "y_ms_ssim": 0.9676854050159455,
+        "ycbcr_611_ms_ssim": 0.9687534064054489,
+        "psnr_db": 27.045369758605958
+      },
+      "xjpeg-3dqt-mozjpeg": {
+        "bpp": 0.49917037496211236,
+        "rgb_ms_ssim": 0.9569341570138932,
+        "y_ms_ssim": 0.9672612887620926,
+        "ycbcr_611_ms_ssim": 0.9684490156173706,
+        "psnr_db": 27.0150644493103
+      },
+      "annex-k-mozjpeg": {
+        "bpp": 0.5009711700025585,
+        "rgb_ms_ssim": 0.9536303049325943,
+        "y_ms_ssim": 0.9723228353261948,
+        "ycbcr_611_ms_ssim": 0.9671233034133911,
+        "psnr_db": 26.95806926727295
+      },
+      "mozjpeg-ms-ssim": {
+        "bpp": 0.5061802460118985,
+        "rgb_ms_ssim": 0.9575938701629638,
+        "y_ms_ssim": 0.9715160900354385,
+        "ycbcr_611_ms_ssim": 0.9698092138767243,
+        "psnr_db": 27.1025217628479
+      },
+      "webp-method6": {
+        "bpp": 0.500153622694583,
+        "rgb_ms_ssim": 0.9566846758127212,
+        "y_ms_ssim": 0.9727581524848938,
+        "ycbcr_611_ms_ssim": 0.968032306432724,
+        "psnr_db": 29.164069328308106
+      }
+    },
+    "0.25": {
+      "xjpeg-2dqt-mozjpeg": {
+        "bpp": 0.251111747384052,
+        "rgb_ms_ssim": 0.9176379138231278,
+        "y_ms_ssim": 0.9322462600469589,
+        "ycbcr_611_ms_ssim": 0.9378674042224884,
+        "psnr_db": 24.899343509674072
+      },
+      "xjpeg-3dqt-mozjpeg": {
+        "bpp": 0.25002460303200663,
+        "rgb_ms_ssim": 0.9164203625917434,
+        "y_ms_ssim": 0.9309142482280731,
+        "ycbcr_611_ms_ssim": 0.9367882841825486,
+        "psnr_db": 24.852557678222656
+      },
+      "annex-k-mozjpeg": {
+        "bpp": 0.24999798271513857,
+        "rgb_ms_ssim": 0.9123686957359314,
+        "y_ms_ssim": 0.9385671657323837,
+        "ycbcr_611_ms_ssim": 0.9351105725765229,
+        "psnr_db": 25.008553409576415
+      },
+      "mozjpeg-ms-ssim": {
+        "bpp": 0.24471706723291,
+        "rgb_ms_ssim": 0.9149537760019303,
+        "y_ms_ssim": 0.9358393377065659,
+        "ycbcr_611_ms_ssim": 0.9368837749958039,
+        "psnr_db": 25.029505214691163
+      },
+      "webp-method6": {
+        "bpp": 0.24995592194601005,
+        "rgb_ms_ssim": 0.9225210076570511,
+        "y_ms_ssim": 0.9421441602706909,
+        "ycbcr_611_ms_ssim": 0.9406676864624024,
+        "psnr_db": 26.608685035705566
+      }
+    }
+  }
+}
