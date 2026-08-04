@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">X-JPEG neural architecture</title>
+  <desc id="desc">The released compact encoder reduces a 256 by 256 thumbnail through four convolution and GDN blocks, adds full-resolution DCT-band statistics at a three by eight by eight head, and maps the output to integer quantization tables. A mirror IGDN decoder exists only during training.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker>
+    <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0891b2"/></marker>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity=".10"/></filter>
+    <style>.title{font:700 34px Inter,Helvetica,Arial,sans-serif;fill:#0f172a}.sub{font:400 18px Inter,Helvetica,Arial,sans-serif;fill:#475569}.h{font:700 17px Inter,Helvetica,Arial,sans-serif;fill:#0f172a;text-anchor:middle}.b{font:400 14px Inter,Helvetica,Arial,sans-serif;fill:#475569;text-anchor:middle}.arrow{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#a)}.cyan{stroke:#0891b2;stroke-width:4;fill:none;marker-end:url(#c)}</style>
+  </defs>
+  <rect width="1400" height="820" fill="#f8fafc"/>
+  <text x="60" y="60" class="title">The released encoder: a compact image-to-table transform</text>
+  <text x="60" y="92" class="sub">Five learned downsampling operations produce exactly 3 × 8 × 8 values—one JPEG table for each color component.</text>
+
+  <g transform="translate(42 165)">
+    <g transform="translate(0 45)">
+      <rect width="135" height="185" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2" filter="url(#s)"/>
+      <rect x="31" y="26" width="74" height="74" rx="8" fill="#f97316"/><path d="M31 88L54 60L72 79L88 54L105 75V100H31Z" fill="#0f766e"/><circle cx="62" cy="52" r="13" fill="#fde047"/>
+      <text x="68" y="127" class="h">RGB thumbnail</text><text x="68" y="151" class="b">3 × 256 × 256</text><text x="68" y="174" class="b">center to [−1, 1]</text>
+    </g>
+    <path d="M140 138H170" class="arrow"/>
+
+    <g transform="translate(175 0)">
+      <rect width="155" height="275" rx="18" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2" filter="url(#s)"/>
+      <text x="78" y="38" class="h">Block 1</text><rect x="31" y="65" width="93" height="93" rx="10" fill="#4f46e5" opacity=".35"/><rect x="43" y="77" width="93" height="93" rx="10" fill="#4f46e5" opacity=".7"/>
+      <text x="78" y="205" class="b">5×5 Conv, stride 2</text><text x="78" y="228" class="b">reparameterized GDN</text><text x="78" y="255" class="h">64 × 128 × 128</text>
+    </g>
+    <path d="M335 138H365" class="arrow"/>
+    <g transform="translate(370 20)">
+      <rect width="155" height="235" rx="18" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2" filter="url(#s)"/>
+      <text x="78" y="38" class="h">Block 2</text><rect x="37" y="65" width="82" height="82" rx="9" fill="#4f46e5" opacity=".45"/><rect x="48" y="76" width="82" height="82" rx="9" fill="#4f46e5" opacity=".8"/>
+      <text x="78" y="188" class="b">Conv ↓2 + GDN</text><text x="78" y="216" class="h">128 × 64 × 64</text>
+    </g>
+    <path d="M530 138H560" class="arrow"/>
+    <g transform="translate(565 40)">
+      <rect width="150" height="195" rx="18" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2" filter="url(#s)"/>
+      <text x="75" y="38" class="h">Block 3</text><rect x="42" y="62" width="66" height="66" rx="8" fill="#4f46e5" opacity=".55"/><rect x="51" y="71" width="66" height="66" rx="8" fill="#4f46e5" opacity=".9"/>
+      <text x="75" y="162" class="b">Conv ↓2 + GDN</text><text x="75" y="185" class="h">192 × 32 × 32</text>
+    </g>
+    <path d="M720 138H750" class="arrow"/>
+    <g transform="translate(755 55)">
+      <rect width="150" height="165" rx="18" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2" filter="url(#s)"/>
+      <text x="75" y="36" class="h">Block 4</text><rect x="50" y="54" width="50" height="50" rx="7" fill="#4f46e5"/><text x="75" y="132" class="b">Conv ↓2 + GDN</text><text x="75" y="154" class="h">256 × 16 × 16</text>
+    </g>
+    <path d="M910 138H940" class="arrow"/>
+    <g transform="translate(945 55)">
+      <rect width="170" height="165" rx="18" fill="#ecfeff" stroke="#0891b2" stroke-width="3" filter="url(#s)"/>
+      <text x="85" y="36" class="h">table head</text><rect x="53" y="55" width="64" height="64" rx="7" fill="#67e8f9" stroke="#0891b2" stroke-width="2"/><path d="M61 55V119M69 55V119M77 55V119M85 55V119M93 55V119M101 55V119M109 55V119M53 63H117M53 71H117M53 79H117M53 87H117M53 95H117M53 103H117M53 111H117" stroke="#0891b2" opacity=".5"/>
+      <text x="85" y="146" class="b">5×5 Conv, stride 2</text><text x="85" y="164" class="h">3 × 8 × 8</text>
+    </g>
+    <path d="M1120 138H1150" class="cyan"/>
+    <g transform="translate(1155 30)">
+      <rect width="190" height="220" rx="20" fill="#fff" stroke="#0891b2" stroke-width="3" filter="url(#s)"/>
+      <text x="95" y="37" class="h">integer DQTs</text>
+      <rect x="24" y="56" width="42" height="42" rx="6" fill="#fde047"/><rect x="74" y="56" width="42" height="42" rx="6" fill="#67e8f9"/><rect x="124" y="56" width="42" height="42" rx="6" fill="#f0abfc"/>
+      <text x="45" y="84" class="h">Y</text><text x="95" y="84" class="h">Cb</text><text x="145" y="84" class="h">Cr</text>
+      <text x="95" y="128" style="font:600 15px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">T = 1 + 254 σ(z/4)</text>
+      <text x="95" y="153" class="b">round and clamp [1, 255]</text>
+      <rect x="29" y="175" width="132" height="28" rx="14" fill="#0891b2"/><text x="95" y="194" style="font:700 12px Inter,Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle">WRITTEN INTO JPEG</text>
+    </g>
+  </g>
+
+  <g transform="translate(600 485)">
+    <rect width="520" height="122" rx="18" fill="#fff" stroke="#06b6d4" stroke-width="2" stroke-dasharray="8 6"/>
+    <text x="260" y="32" class="h">full-resolution DCT-band statistics</text>
+    <text x="260" y="58" class="b">log-energy for every component × 8×8 frequency</text>
+    <text x="260" y="82" class="b">added with a separately learned gain at the matching table entry</text>
+    <text x="260" y="105" style="font:700 13px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">global thumbnail semantics + native-resolution frequency evidence</text>
+  </g>
+  <path d="M990 485V407" class="cyan"/>
+
+  <g transform="translate(55 650)">
+    <rect width="1290" height="116" rx="20" fill="#0f172a"/>
+    <text x="30" y="36" style="font:800 18px Inter,Helvetica,Arial,sans-serif;fill:#67e8f9">Training-only mirror path</text>
+    <text x="30" y="66" style="font:400 15px Inter,Helvetica,Arial,sans-serif;fill:#e2e8f0">3×8×8 tables → transposed convolutions + IGDN → 256×256 RGB reconstruction</text>
+    <text x="30" y="91" style="font:400 14px Inter,Helvetica,Arial,sans-serif;fill:#94a3b8">The selected release sets this loss to zero and ships only the encoder; the mirror path remains available for research.</text>
+    <rect x="1070" y="25" width="185" height="65" rx="14" fill="#1e293b" stroke="#475569"/>
+    <text x="1162" y="51" style="font:800 18px Inter,Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle">2,196,355</text><text x="1162" y="75" style="font:500 14px Inter,Helvetica,Arial,sans-serif;fill:#cbd5e1;text-anchor:middle">released parameters</text>
+  </g>
+</svg>

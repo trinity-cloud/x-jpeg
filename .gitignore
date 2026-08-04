@@ -11,3 +11,4 @@ wheelhouse/
 *.jpeg
 *.png
 !docs/assets/*.png
+!paper/figures/png/*.png

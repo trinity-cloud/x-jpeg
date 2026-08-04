@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="840" viewBox="0 0 1400 840" role="img" aria-labelledby="title desc">
+  <title id="title">Where X-JPEG extends JPEG</title>
+  <desc id="desc">The source image feeds a neural quantization-table predictor and an ordinary JPEG encoder. Only encoding changes; the output remains a normal JPEG decoded by existing software.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker>
+    <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0891b2"/></marker>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity=".10"/></filter>
+    <style>
+      .title{font:700 34px Inter,Helvetica,Arial,sans-serif;fill:#0f172a}.sub{font:400 18px Inter,Helvetica,Arial,sans-serif;fill:#475569}.h{font:700 19px Inter,Helvetica,Arial,sans-serif;fill:#0f172a;text-anchor:middle}.b{font:400 15px Inter,Helvetica,Arial,sans-serif;fill:#475569;text-anchor:middle}.label{font:700 14px Inter,Helvetica,Arial,sans-serif;fill:#475569}.white{fill:#fff}.line{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#a)}.cline{stroke:#0891b2;stroke-width:4;fill:none;marker-end:url(#c)}
+    </style>
+  </defs>
+  <rect width="1400" height="840" fill="#f8fafc"/>
+  <text x="60" y="60" class="title">X-JPEG moves intelligence into the encoder—and leaves JPEG decoding alone</text>
+  <text x="60" y="92" class="sub">A neural network selects the image's quantization tables; a mature JPEG encoder still creates the bitstream.</text>
+
+  <g transform="translate(55 180)">
+    <rect width="190" height="200" rx="20" fill="#fff" stroke="#cbd5e1" stroke-width="2" filter="url(#s)"/>
+    <rect x="39" y="34" width="112" height="82" rx="10" fill="#f97316"/><circle cx="90" cy="67" r="25" fill="#fde047"/><path d="M39 103L72 71L96 92L119 66L151 95V116H39Z" fill="#0f766e"/>
+    <text x="95" y="152" class="h">source image</text><text x="95" y="177" class="b">any RGB dimensions</text>
+  </g>
+
+  <path d="M245 280 H330" class="line"/>
+  <circle cx="295" cy="280" r="8" fill="#64748b"/>
+  <path d="M295 280 V183 H365" class="line"/>
+  <path d="M295 280 V510 H365" class="line"/>
+
+  <g transform="translate(365 120)">
+    <rect width="530" height="330" rx="24" fill="#ecfeff" stroke="#0891b2" stroke-width="3" filter="url(#s)"/>
+    <rect width="530" height="54" rx="22" fill="#0891b2"/><rect y="32" width="530" height="22" fill="#0891b2"/>
+    <text x="265" y="35" style="font:800 21px Inter,Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle">X-JPEG table predictor · encoder-side only</text>
+    <g transform="translate(25 86)">
+      <rect width="160" height="92" rx="14" fill="#fff" stroke="#67e8f9" stroke-width="2"/>
+      <text x="80" y="34" class="h">256×256 view</text><text x="80" y="59" class="b">global content</text><text x="80" y="79" class="b">and structure</text>
+      <rect y="125" width="160" height="92" rx="14" fill="#fff" stroke="#67e8f9" stroke-width="2"/>
+      <text x="80" y="159" class="h">DCT statistics</text><text x="80" y="184" class="b">full-resolution</text><text x="80" y="204" class="b">frequency energy</text>
+    </g>
+    <path d="M200 132 H250" class="cline"/><path d="M200 257 H250" class="cline"/>
+    <g transform="translate(255 88)">
+      <rect width="130" height="215" rx="16" fill="#0f172a"/>
+      <text x="65" y="39" style="font:700 17px Inter,Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle">compact CNN</text>
+      <text x="65" y="72" style="font:500 14px Inter,Helvetica,Arial,sans-serif;fill:#cbd5e1;text-anchor:middle">5 transforms</text>
+      <text x="65" y="97" style="font:500 14px Inter,Helvetica,Arial,sans-serif;fill:#cbd5e1;text-anchor:middle">Conv + GDN</text>
+      <path d="M33 127H97M40 144H90M47 161H83" stroke="#67e8f9" stroke-width="7" stroke-linecap="round"/>
+      <text x="65" y="195" style="font:700 14px Inter,Helvetica,Arial,sans-serif;fill:#67e8f9;text-anchor:middle">2.20M params</text>
+    </g>
+    <path d="M390 195 H425" class="cline"/>
+    <g transform="translate(425 95)">
+      <rect width="78" height="62" rx="10" fill="#fde047"/><text x="39" y="28" class="h">Y</text><text x="39" y="49" class="b">8×8</text>
+      <rect y="72" width="78" height="62" rx="10" fill="#67e8f9"/><text x="39" y="100" class="h">Cb</text><text x="39" y="121" class="b">8×8</text>
+      <rect y="144" width="78" height="62" rx="10" fill="#f0abfc"/><text x="39" y="172" class="h">Cr</text><text x="39" y="193" class="b">8×8</text>
+    </g>
+  </g>
+
+  <g transform="translate(365 490)">
+    <rect width="530" height="170" rx="22" fill="#fff" stroke="#cbd5e1" stroke-width="2" filter="url(#s)"/>
+    <text x="265" y="36" class="h">ordinary JPEG encoder</text>
+    <text x="265" y="61" class="b">MozJPEG or libjpeg · 4:2:0 · trellis/Huffman optimization</text>
+    <g transform="translate(30 88)"><rect width="88" height="48" rx="10" fill="#dbeafe"/><text x="44" y="30" class="b">pixels</text></g>
+    <path d="M125 112H170" class="line"/>
+    <g transform="translate(175 88)"><rect width="180" height="48" rx="10" fill="#cffafe" stroke="#0891b2"/><text x="90" y="30" class="b">predicted Q tables</text></g>
+    <path d="M360 112H400" class="line"/>
+    <g transform="translate(405 88)"><rect width="95" height="48" rx="10" fill="#ede9fe"/><text x="48" y="30" class="b">encode</text></g>
+  </g>
+
+  <path d="M895 575 H965" class="line"/>
+  <g transform="translate(965 490)">
+    <rect width="165" height="170" rx="22" fill="#312e81" stroke="#4f46e5" stroke-width="3"/>
+    <path d="M45 36H106L124 54V130H45Z" fill="#fff" opacity=".95"/><path d="M106 36V57H124" fill="none" stroke="#4f46e5" stroke-width="4"/>
+    <text x="83" y="111" style="font:800 20px Inter,Helvetica,Arial,sans-serif;fill:#4f46e5;text-anchor:middle">.JPG</text>
+    <text x="83" y="151" style="font:700 15px Inter,Helvetica,Arial,sans-serif;fill:#fff;text-anchor:middle">standard bitstream</text>
+  </g>
+  <path d="M1135 575 H1190" class="line"/>
+  <g transform="translate(1190 490)">
+    <rect width="155" height="170" rx="22" fill="#dcfce7" stroke="#16a34a" stroke-width="3" filter="url(#s)"/>
+    <text x="78" y="43" class="h">any JPEG</text><text x="78" y="68" class="h">decoder</text>
+    <circle cx="78" cy="108" r="30" fill="#16a34a"/><path d="M62 108L73 119L96 95" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="78" y="153" class="b">no neural runtime</text>
+  </g>
+
+  <path d="M820 450 V486" class="cline"/>
+  <rect x="785" y="452" width="130" height="25" rx="12" fill="#cffafe"/><text x="850" y="470" style="font:700 12px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">Y / Cb / Cr DQTs</text>
+
+  <g transform="translate(55 710)">
+    <rect width="1290" height="86" rx="18" fill="#0f172a"/>
+    <text x="32" y="35" style="font:800 19px Inter,Helvetica,Arial,sans-serif;fill:#67e8f9">Compatibility is the design constraint.</text>
+    <text x="32" y="62" style="font:400 16px Inter,Helvetica,Arial,sans-serif;fill:#e2e8f0">X-JPEG changes table selection, not JPEG syntax. Existing browsers, image libraries, CDNs, and hardware decoders read the result normally.</text>
+  </g>
+</svg>

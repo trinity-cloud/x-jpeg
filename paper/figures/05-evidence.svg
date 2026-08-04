@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920" role="img" aria-labelledby="title desc">
+  <title id="title">X-JPEG evidence at target bitrates</title>
+  <desc id="desc">Three panels summarize RGB MS-SSIM results. A 1000-image study at 0.8 bits per pixel shows the adaptive model beating fixed-average, shuffled, Annex K and jpegli controls. Preliminary 100-image low-rate studies show results at 0.5 and 0.25 bits per pixel compared with JPEG, MozJPEG and WebP.</desc>
+  <defs>
+    <style>.title{font:700 34px Inter,Helvetica,Arial,sans-serif;fill:#0f172a}.sub{font:400 18px Inter,Helvetica,Arial,sans-serif;fill:#475569}.ph{font:700 21px Inter,Helvetica,Arial,sans-serif;fill:#0f172a}.axis{font:500 13px Inter,Helvetica,Arial,sans-serif;fill:#64748b}.name{font:600 14px Inter,Helvetica,Arial,sans-serif;fill:#334155}.val{font:700 14px Inter,Helvetica,Arial,sans-serif;fill:#0f172a}.note{font:400 14px Inter,Helvetica,Arial,sans-serif;fill:#475569}</style>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity=".08"/></filter>
+  </defs>
+  <rect width="1400" height="920" fill="#f8fafc"/>
+  <text x="60" y="60" class="title">What the current evidence says</text>
+  <text x="60" y="92" class="sub">RGB MS-SSIM at matched complete-file rate. Higher is better; rates include headers and quantization-table segments.</text>
+
+  <g transform="translate(55 135)">
+    <rect width="1290" height="310" rx="22" fill="#fff" stroke="#cbd5e1" stroke-width="2" filter="url(#s)"/>
+    <text x="30" y="42" class="ph">A · High-power adaptivity study · COCO val2017 · n = 1,000 · 256×256 · ≈0.8 bpp</text>
+    <text x="30" y="68" class="note">The three-DQT model is the clean test of image/table assignment; controls receive one dataset-wide rate scale.</text>
+    <line x1="255" y1="100" x2="1240" y2="100" stroke="#e2e8f0"/><line x1="255" y1="273" x2="1240" y2="273" stroke="#e2e8f0"/>
+    <text x="255" y="294" class="axis">0.968</text><text x="583" y="294" class="axis">0.970</text><text x="911" y="294" class="axis">0.972</text><text x="1224" y="294" class="axis">0.974</text>
+    <g transform="translate(0 0)">
+      <text x="235" y="124" class="name" text-anchor="end">Annex-K tables</text><rect x="255" y="109" width="139" height="20" rx="4" fill="#94a3b8"/><text x="404" y="124" class="val">0.96885</text>
+      <text x="235" y="156" class="name" text-anchor="end">shuffled X-JPEG tables</text><rect x="255" y="141" width="624" height="20" rx="4" fill="#cbd5e1"/><text x="889" y="156" class="val">0.97180</text>
+      <text x="235" y="188" class="name" text-anchor="end">fixed-average X-JPEG</text><rect x="255" y="173" width="785" height="20" rx="4" fill="#a5b4fc"/><text x="1050" y="188" class="val">0.97278</text>
+      <text x="235" y="220" class="name" text-anchor="end">jpegli</text><rect x="255" y="205" width="792" height="20" rx="4" fill="#8b5cf6"/><text x="1057" y="220" class="val">0.97282</text>
+      <text x="235" y="252" class="name" text-anchor="end">X-JPEG · 3 DQTs</text><rect x="255" y="237" width="858" height="20" rx="4" fill="#06b6d4"/><text x="1123" y="252" class="val">0.97322</text>
+      <text x="235" y="284" class="name" text-anchor="end"></text>
+    </g>
+    <rect x="1098" y="130" width="154" height="70" rx="12" fill="#ecfeff" stroke="#0891b2"/>
+    <text x="1175" y="154" style="font:700 13px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">adaptive − fixed</text><text x="1175" y="176" style="font:800 18px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">+0.000444</text><text x="1175" y="194" style="font:500 11px Inter,Helvetica,Arial,sans-serif;fill:#475569;text-anchor:middle">95% CI +.000168…+.000731</text>
+    <rect x="1098" y="208" width="154" height="70" rx="12" fill="#ecfeff" stroke="#0891b2"/>
+    <text x="1175" y="232" style="font:700 13px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">adaptive − shuffled</text><text x="1175" y="254" style="font:800 18px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">+0.001427</text><text x="1175" y="272" style="font:500 11px Inter,Helvetica,Arial,sans-serif;fill:#475569;text-anchor:middle">95% CI +.000997…+.001844</text>
+  </g>
+
+  <g transform="translate(55 480)">
+    <rect width="625" height="330" rx="22" fill="#fff" stroke="#cbd5e1" stroke-width="2" filter="url(#s)"/>
+    <text x="28" y="41" class="ph">B · 0.5 bpp pilot · n = 100 · native</text>
+    <text x="28" y="67" class="note">MozJPEG backend, progressive 4:2:0</text>
+    <line x1="205" y1="95" x2="575" y2="95" stroke="#e2e8f0"/><line x1="205" y1="287" x2="575" y2="287" stroke="#e2e8f0"/>
+    <text x="205" y="309" class="axis">0.953</text><text x="390" y="309" class="axis">0.955</text><text x="560" y="309" class="axis">0.957</text>
+    <text x="190" y="124" class="name" text-anchor="end">Annex-K + MozJPEG</text><rect x="205" y="109" width="58" height="22" rx="4" fill="#94a3b8"/><text x="273" y="125" class="val">0.95363</text>
+    <text x="190" y="164" class="name" text-anchor="end">WebP method 6</text><rect x="205" y="149" width="341" height="22" rx="4" fill="#22c55e"/><text x="556" y="165" class="val">0.95668</text>
+    <text x="190" y="204" class="name" text-anchor="end">X-JPEG · 2 DQTs</text><rect x="205" y="189" width="387" height="22" rx="4" fill="#06b6d4"/><text x="514" y="205" class="val" text-anchor="end">0.95718</text>
+    <text x="190" y="244" class="name" text-anchor="end">MozJPEG MS-SSIM</text><rect x="205" y="229" width="425" height="22" rx="4" fill="#8b5cf6"/><text x="548" y="245" class="val" text-anchor="end">0.95759</text>
+    <rect x="28" y="271" width="145" height="35" rx="17" fill="#ecfeff"/><text x="100" y="294" style="font:700 13px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">X-JPEG vs Annex-K +.00355</text>
+  </g>
+
+  <g transform="translate(720 480)">
+    <rect width="625" height="330" rx="22" fill="#fff" stroke="#cbd5e1" stroke-width="2" filter="url(#s)"/>
+    <text x="28" y="41" class="ph">C · 0.25 bpp pilot · n = 100 · native</text>
+    <text x="28" y="67" class="note">Extremely low rate; WebP is strongest in this test</text>
+    <line x1="205" y1="95" x2="575" y2="95" stroke="#e2e8f0"/><line x1="205" y1="287" x2="575" y2="287" stroke="#e2e8f0"/>
+    <text x="205" y="309" class="axis">0.912</text><text x="390" y="309" class="axis">0.917</text><text x="560" y="309" class="axis">0.922</text>
+    <text x="190" y="124" class="name" text-anchor="end">Annex-K + MozJPEG</text><rect x="205" y="109" width="14" height="22" rx="4" fill="#94a3b8"/><text x="229" y="125" class="val">0.91237</text>
+    <text x="190" y="164" class="name" text-anchor="end">MozJPEG MS-SSIM</text><rect x="205" y="149" width="110" height="22" rx="4" fill="#8b5cf6"/><text x="325" y="165" class="val">0.91495</text>
+    <text x="190" y="204" class="name" text-anchor="end">X-JPEG · 2 DQTs</text><rect x="205" y="189" width="209" height="22" rx="4" fill="#06b6d4"/><text x="424" y="205" class="val">0.91764</text>
+    <text x="190" y="244" class="name" text-anchor="end">WebP method 6</text><rect x="205" y="229" width="390" height="22" rx="4" fill="#22c55e"/><text x="513" y="245" class="val" text-anchor="end">0.92252</text>
+    <rect x="28" y="271" width="145" height="35" rx="17" fill="#ecfeff"/><text x="100" y="294" style="font:700 13px Inter,Helvetica,Arial,sans-serif;fill:#0e7490;text-anchor:middle">X-JPEG vs Annex-K +.00527</text>
+  </g>
+
+  <g transform="translate(55 842)">
+    <rect width="1290" height="46" rx="16" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="645" y="29" style="font:600 14px Inter,Helvetica,Arial,sans-serif;fill:#9a3412;text-anchor:middle">Low-rate panels are exploratory aggregates without paired confidence intervals; they motivate a larger preregistered benchmark, not a universal codec-ranking claim.</text>
+  </g>
+</svg>

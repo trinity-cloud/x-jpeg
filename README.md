@@ -17,6 +17,16 @@ image ──► compact CNN + full-image DCT statistics ──► adaptive Y/Cb/
 The current implementation and release weights were developed by Migel
 Tissera in 2026 and are released by Trinity Cloud under the MIT License.
 
+## Research paper
+
+[![X-JPEG moves intelligence into the encoder while preserving ordinary JPEG decoding](paper/figures/png/02-xjpeg-integration.png)](paper/xjpeg-paper.pdf)
+
+The accompanying paper documents the JPEG pipeline, X-JPEG architecture,
+training objective, compatibility boundary, and low-rate evidence. Read the
+rendered [`X-JPEG paper`](paper/xjpeg-paper.pdf), or inspect the complete
+[`Markdown`](paper/paper.md), [`LaTeX`](paper/main.tex),
+[`bibliography`](paper/references.bib), and [`figure sources`](paper/figures/).
+
 ## Install
 
 ```bash
