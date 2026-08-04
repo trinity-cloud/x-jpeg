@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xjpeg"
-version = "0.1.0"
-description = "Neural adaptive quantization tables for standards-compliant JPEG"
+version = "0.1.1"
+description = "Extending JPEG with neural networks (X-JPEG): Image-adaptive quantization with neural networks for JPEG"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

@@ -7,5 +7,5 @@ The tables are handed to a stock libjpeg encoder, so the output is a
 
 from .codec import XJPEG
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __all__ = ["XJPEG"]

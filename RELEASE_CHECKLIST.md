@@ -29,7 +29,7 @@ Public namespaces:
 4. Run the cross-platform wheel workflow with `publish` left disabled and
    inspect the `manylinux_2_28_x86_64`, macOS x86-64, macOS arm64, and
    Windows x86-64 artifacts.
-5. Tag signed `v0.1.0`, approve the protected `pypi` environment, and publish.
+5. Tag the intended version, approve the protected `pypi` environment, and publish.
 6. Create the GitHub release with wheel/sdist checksums and link the model.
 
 ## Launch language
