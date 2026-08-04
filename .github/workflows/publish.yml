@@ -18,36 +18,49 @@ jobs:
   wheels:
     env:
       MACOSX_DEPLOYMENT_TARGET: "12.0"
+      CIBW_BUILD: ${{ matrix.build }}
+      CIBW_BUILD_VERBOSITY: "1"
+      CIBW_BEFORE_BUILD: python {project}/tools/build_mozjpeg.py
+      CIBW_BEFORE_ALL_LINUX: dnf install -y cmake git nasm
+      CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_28
+      CIBW_TEST_EXTRAS: test
+      CIBW_TEST_COMMAND: >-
+        python {project}/tools/verify_release.py &&
+        python -m pytest -q {project}/tests
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13, macos-14, windows-latest]
+        include:
+          - os: ubuntu-24.04
+            artifact: linux-x64
+            build: cp311-manylinux_x86_64
+          - os: macos-15-intel
+            artifact: macos-x64
+            build: cp311-macosx_x86_64
+          - os: macos-15
+            artifact: macos-arm64
+            build: cp311-macosx_arm64
+          - os: windows-2022
+            artifact: windows-x64
+            build: cp311-win_amd64
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-      - name: Install Linux build prerequisites
-        if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y nasm
-      - name: Install build dependencies
-        run: python -m pip install build twine ".[test]"
-      - name: Build pinned MozJPEG
-        run: python tools/build_mozjpeg.py
-      - name: Verify and test
+      - name: Install macOS build prerequisite
+        if: runner.os == 'macOS'
+        run: brew install nasm
+      - name: Install Windows build prerequisite
+        if: runner.os == 'Windows'
+        shell: pwsh
         run: |
-          python tools/verify_release.py
-          python -m pytest -q
-      - name: Build platform wheel
-        run: python -m build --wheel
-      - name: Check metadata
-        run: python -m twine check dist/*
+          choco install nasm -y --no-progress
+          "C:\Program Files\NASM" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Build and test portable platform wheel
+        uses: pypa/cibuildwheel@4726cd35bb13f7bde50cf2761f2499ac7b3aa32c # v4.1.1
       - uses: actions/upload-artifact@v4
         with:
-          name: wheel-${{ matrix.os }}
-          path: dist/*.whl
+          name: wheel-${{ matrix.artifact }}
+          path: wheelhouse/*.whl
           if-no-files-found: error
 
   source:
