@@ -5,9 +5,8 @@ authors:
   - family-names: Tissera
     given-names: Migel
 version: 0.1.0
-date-released: 2026-07-21
+date-released: 2026-08-04
 license: MIT
 repository-code: "https://github.com/trinity-cloud/x-jpeg"
 url: "https://huggingface.co/migtissera/x-jpeg"
 type: software
-

@@ -2,6 +2,12 @@ name: Build and publish PyPI release
 
 on:
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the validated artifacts to PyPI
+        required: true
+        type: boolean
+        default: false
   push:
     tags: ["v*"]
 
@@ -62,6 +68,7 @@ jobs:
           if-no-files-found: error
 
   publish:
+    if: ${{ github.event_name == 'push' || inputs.publish }}
     needs: [wheels, source]
     runs-on: ubuntu-latest
     environment: pypi

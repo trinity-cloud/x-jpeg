@@ -26,8 +26,8 @@ Public namespaces:
    Dependabot, security advisories, and Actions.
 2. Create and push `migtissera/x-jpeg` using Git LFS.
 3. Create PyPI Trusted Publisher configuration for the package workflow.
-4. Run the cross-platform wheel workflow without publishing and inspect all
-   artifacts.
+4. Run the cross-platform wheel workflow with `publish` left disabled and
+   inspect all artifacts.
 5. Tag signed `v0.1.0`, approve the protected `pypi` environment, and publish.
 6. Create the GitHub release with wheel/sdist checksums and link the model.
 
@@ -39,4 +39,3 @@ control at matched complete-file bitrate on the documented held-out sample.
 Do not claim universal visual superiority over JPEG/WebP. At 0.25 bpp WebP
 leads the current evaluation; at both low-rate points it leads luma MS-SSIM
 and PSNR.
-
