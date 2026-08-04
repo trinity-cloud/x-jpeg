@@ -1,6 +1,6 @@
 # X-JPEG
 
-Neural, image-adaptive quantization tables for ordinary JPEG files.
+Extending JPEG with neural networks (X-JPEG): Image-adaptive quantization with neural networks for JPEG
 
 X-JPEG analyzes an image, predicts three 8×8 quantization tables for Y, Cb,
 and Cr, and passes them to a production JPEG encoder. The output is a normal
@@ -132,4 +132,3 @@ counts. The full objective and validation contract are documented in
 X-JPEG code and weights are MIT licensed. Bundled MozJPEG is distributed
 under its compatible upstream licenses; see
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
-
